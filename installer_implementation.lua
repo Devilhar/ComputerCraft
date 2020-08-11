@@ -13,7 +13,7 @@ local cPackages = {
 	monitor_client = {
 		{ v = "1.2", p = "monitor/monitor_client.lua",		n = "monitor/monitor_client" },
 		{ v = "1.2", p = "monitor/monitor_api.lua",			n = "monitor/monitor_api" },
-		{ v = "1.2", p = "monitor/agridome.lua",			n = "monitor/programs/agridome" }
+		{ v = "1.2", p = "monitor/programs/agridome.lua",	n = "monitor/programs/agridome" }
 	},
 	agridome_turtle = {
 		{ v = "1.1", p = "agridome/agridome_turtle.lua",	n = "agridome/turtle" }
