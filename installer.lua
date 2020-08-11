@@ -1,0 +1,1 @@
+loadstring(http.get("http://www.pastebin.com/raw.php?i=PeCx4Z3Y").readAll())(...)
