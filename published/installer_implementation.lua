@@ -1,25 +1,25 @@
-local cBasePath = "https://raw.githubusercontent.com/Devilhar/ComputerCraft/master/"
+local cBasePath = "https://raw.githubusercontent.com/Devilhar/ComputerCraft/master/published/"
 
 local cPackages = {
 	apis = {
-		{ v = "1.1", p = "api/signal.lua",					n = "api/signal" },
-		{ v = "1.1", p = "api/net.lua",						n = "api/net" },
-		{ v = "1.1", p = "api/dns.lua",						n = "api/dns" },
-		{ v = "1.1", p = "api/tp.lua",						n = "api/tp" },
-		{ v = "1.1", p = "api/query.lua",					n = "api/query" },
-		{ v = "1.1", p = "api/parameters.lua",				n = "api/parameters" },
-		{ v = "1.1", p = "api/startup.lua",					n = "startup/AAA_api_loader" }
+		{ p = "api/signal.lua",					n = "api/signal" },
+		{ p = "api/net.lua",					n = "api/net" },
+		{ p = "api/dns.lua",					n = "api/dns" },
+		{ p = "api/tp.lua",						n = "api/tp" },
+		{ p = "api/query.lua",					n = "api/query" },
+		{ p = "api/parameters.lua",				n = "api/parameters" },
+		{ p = "api/startup.lua",				n = "startup/AAA_api_loader" }
 	},
 	monitor_client = {
-		{ v = "1.2", p = "monitor/monitor_client.lua",		n = "monitor/monitor_client" },
-		{ v = "1.2", p = "monitor/monitor_api.lua",			n = "monitor/monitor_api" },
-		{ v = "1.2", p = "monitor/programs/agridome.lua",	n = "monitor/programs/agridome" }
+		{ p = "monitor/monitor_client.lua",		n = "monitor/monitor_client" },
+		{ p = "monitor/monitor_api.lua",		n = "monitor/monitor_api" },
+		{ p = "monitor/programs/agridome.lua",	n = "monitor/programs/agridome" }
 	},
 	agridome_turtle = {
-		{ v = "1.1", p = "agridome/agridome_turtle.lua",	n = "agridome/turtle" }
+		{ p = "agridome/agridome_turtle.lua",	n = "agridome/turtle" }
 	},
 	agridome_service = {
-		{ v = "1.1", p = "agridome/agridome_service.lua",	n = "agridome/service" }
+		{ p = "agridome/agridome_service.lua",	n = "agridome/service" }
 	}
 }
 local cInstalls = {
@@ -81,6 +81,15 @@ local function DownloadFile(aPath, aFile)
 	
 	return true
 end
+local function GetFileHash(aPath)
+	local response = http.get(cBasePath .. aPath .. ".sha1")
+	
+	if not response then
+		return nil
+	end
+	
+	return response.readAll()
+end
 
 local args = {...}
 
@@ -100,7 +109,9 @@ local lVersions = LoadPackagesVersion()
 
 for _, v in ipairs(install) do
 	for _, p in ipairs(cPackages[v]) do
-		if lVersions[p.n] ~= p.v
+		local hash = GetFileHash(p.p)
+		
+		if lVersions[p.n] ~= hash
 			or not fs.exists(p.n) then
 			local tempFile = p.n .. "_temp"
 			
@@ -108,7 +119,7 @@ for _, v in ipairs(install) do
 				fs.delete(p.n)
 				
 				fs.move(tempFile, p.n)
-				lVersions[p.n] = p.v
+				lVersions[p.n] = hash
 				
 				print("File downloaded: " .. p.n)
 			else

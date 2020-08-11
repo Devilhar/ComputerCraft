@@ -1,0 +1,6 @@
+os.loadAPI("api/parameters")
+os.loadAPI("api/query")
+os.loadAPI("api/signal")
+os.loadAPI("api/net")
+os.loadAPI("api/dns")
+os.loadAPI("api/tp")
