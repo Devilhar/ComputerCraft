@@ -1,1 +1,4 @@
-loadstring(http.get("http://www.pastebin.com/raw.php?i=PeCx4Z3Y").readAll())(...)
+-- Use these command to download this installer
+-- local file = fs.open("installer", "w"); file.write(http.get("https://raw.githubusercontent.com/Devilhar/ComputerCraft/master/installer.lua").readAll()); file.flush(); file.close()
+
+loadstring(http.get("https://raw.githubusercontent.com/Devilhar/ComputerCraft/master/installer_implementation.lua").readAll())(...)

@@ -1,26 +1,25 @@
+local cBasePath = "https://raw.githubusercontent.com/Devilhar/ComputerCraft/master/"
+
 local cPackages = {
 	apis = {
-		{ v = "1.1", p = "zr6G4VvV", n = "api/signal" },
-		{ v = "1.1", p = "UedyfUfX", n = "api/net" },
-		{ v = "1.1", p = "1gdaUH6f", n = "api/dns" },
-		{ v = "1.1", p = "iFfZ3LzP", n = "api/tp" },
-		{ v = "1.1", p = "cJE64GYG", n = "api/query" },
-		{ v = "1.1", p = "gnm17en1", n = "api/parameters" },
-		{ v = "1.1", p = "Jkw7wpRk", n = "startup/AAA_api_loader" }
+		{ v = "1.1", p = "api/signal.lua",					n = "api/signal" },
+		{ v = "1.1", p = "api/net.lua",						n = "api/net" },
+		{ v = "1.1", p = "api/dns.lua",						n = "api/dns" },
+		{ v = "1.1", p = "api/tp.lua",						n = "api/tp" },
+		{ v = "1.1", p = "api/query.lua",					n = "api/query" },
+		{ v = "1.1", p = "api/parameters.lua",				n = "api/parameters" },
+		{ v = "1.1", p = "api/startup.lua",					n = "startup/AAA_api_loader" }
 	},
 	monitor_client = {
-		{ v = "1.2", p = "E6vwMjyg", n = "monitor/monitor_client" },
-		{ v = "1.2", p = "X0RH3BBc", n = "monitor/monitor_api" },
-		{ v = "1.2", p = "kv7EKExM", n = "monitor/programs/agridome" }
+		{ v = "1.2", p = "monitor/monitor_client.lua",		n = "monitor/monitor_client" },
+		{ v = "1.2", p = "monitor/monitor_api.lua",			n = "monitor/monitor_api" },
+		{ v = "1.2", p = "monitor/agridome.lua",			n = "monitor/programs/agridome" }
 	},
 	agridome_turtle = {
-		{ v = "1.1", p = "sKrMibUV", n = "agridome/turtle" }
+		{ v = "1.1", p = "agridome/agridome_turtle.lua",	n = "agridome/turtle" }
 	},
 	agridome_service = {
-		{ v = "1.1", p = "qqat5e3q", n = "agridome/service" }
-	},
-	agridome_client = {
-		{ v = "1.1", p = "zKe6GDv5", n = "agridome/field" }
+		{ v = "1.1", p = "agridome/agridome_service.lua",	n = "agridome/service" }
 	}
 }
 local cInstalls = {
@@ -35,10 +34,6 @@ local cInstalls = {
 	agridome_service = {
 		"apis",
 		"agridome_service"
-	},
-	agridome_client = {
-		"apis",
-		"agridome_client"
 	}
 }
 local cFilename = "versions.json"
@@ -65,8 +60,8 @@ local function SavePackagesVersion(aVersions)
 	
 	file.close()
 end
-local function DownloadFile(aPastebinId, aFile)
-	local response = http.get("http://www.pastebin.com/raw.php?i=" .. aPastebinId)
+local function DownloadFile(aPath, aFile)
+	local response = http.get(cBasePath .. aPath)
 	
 	if not response then
 		return false
