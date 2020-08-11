@@ -1,4 +1,6 @@
 
+rm -r ./published
+
 cp -r ./src ./published
 
 for f in $(find ./published/ -type f); do
