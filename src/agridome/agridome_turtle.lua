@@ -23,12 +23,15 @@ local cSeedConfig = {
 	quartz		= { pos = 5, side = "left" },
 	emerald		= { pos = 6, side = "left" },
 	inferium	= { pos = 7, side = "left" },
+	glowstone	= { pos = 8, side = "left" },
 	redstone	= { pos = 1, side = "right" },
 	lapis		= { pos = 2, side = "right" },
 	dye			= { pos = 3, side = "right" },
 	ender		= { pos = 4, side = "right" },
 	osmium		= { pos = 5, side = "right" },
-	prismarine	= { pos = 6, side = "right" }
+	prismarine	= { pos = 6, side = "right" },
+	dirt		= { pos = 7, side = "right" },
+	water		= { pos = 8, side = "right" }
 }
 local cFileSeed = "agridome_seed.dat"
 

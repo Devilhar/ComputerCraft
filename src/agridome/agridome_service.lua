@@ -8,13 +8,16 @@ local cSeedTypes = {
 	coal		= { name = "Coal",			color = colors.black	 },
 	quartz		= { name = "Nether Quartz",	color = colors.white	 },
 	emerald		= { name = "Emerald",		color = colors.lime		 },
-	inferium	= { name = "Inferium"	,	color = colors.green	 },
+	inferium	= { name = "Inferium",		color = colors.green	 },
+	glowstone	= { name = "Glowstone",		color = colors.yellow	 },
 	redstone	= { name = "Redstone",		color = colors.red		 },
 	lapis		= { name = "Lapiz",			color = colors.blue		 },
 	dye			= { name = "Dye",			color = colors.pink		 },
 	ender		= { name = "Enderman",		color = colors.purple	 },
-	osmium		= { name = "Osmium"	,		color = colors.cyan		 },
-	prismarine	= { name = "Prismarine"	,	color = colors.cyan		 }
+	osmium		= { name = "Osmium",		color = colors.cyan		 },
+	prismarine	= { name = "Prismarine",	color = colors.cyan		 },
+	dirt		= { name = "Dirt Essence",	color = colors.brown	 },
+	water		= { name = "Water Essence",	color = colors.lightBlue }
 }
 
 local lHostname = args[1]
